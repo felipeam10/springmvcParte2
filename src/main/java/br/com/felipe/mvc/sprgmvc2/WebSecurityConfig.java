@@ -22,8 +22,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.formLogin(form -> form
 	            .loginPage("/login")
+	            .defaultSuccessUrl("/home", true) //faz direcionar para /home direto, antes estava direcionando para /login?logout
 	            .permitAll()
-		    );
+		    )
+			.logout(logout -> logout.logoutUrl("/logout"));
 	}
 
 	@Bean
