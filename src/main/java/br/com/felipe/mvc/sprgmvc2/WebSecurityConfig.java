@@ -33,7 +33,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .defaultSuccessUrl("/home", true) //faz direcionar para /home direto, antes estava direcionando para /login?logout
 	            .permitAll()
 		    )
-			.logout(logout -> logout.logoutUrl("/logout"));
+			.logout(logout -> logout.logoutUrl("/logout"))
+			.csrf().disable();//evita o erro 403
 	}
 	
 	@Override
