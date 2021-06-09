@@ -1,4 +1,17 @@
+Aula 01
 
+Nesta aula, começamos a usar Spring Security, implementando um login e logout.
+
+Aprendemos que:
+
+	@Configuration e @EnableWebSecurity na classe que define as regras de segurança
+	As regras de acesso foram definidos pelo HttpSecurity
+	Os dados do usuário, como login e senha, foram definidos pelo método userDetailsService()
+	O login pode ser implementado de várias formas
+		Vimos a forma HttpBasic e form-login
+		A lógica de login e logout já está implementada pelo Spring Security, basta configurar
+
+============================================================================================
 
 Aula 02 
 
@@ -20,3 +33,16 @@ create table authorities (
 create unique index ix_auth_username on authorities (username,authority);
 
 obs: todas as tabelas tem q estar como ENGINE=InnoDB
+
+Nesta aula, aprendemos a:
+
+	Executar uma autenticação baseada em JDBC
+	Criptografar a senha do usuário
+	Criar o modelo JDBC para representar o usuário e as permissões com Spring Security
+	Acessar o usuário autenticado com Spring MVC, usando o Principal
+	Escrever uma query JPA com Spring Data
+	Usar links relativos com Thymeleaf, por exemplo th:action="@{/pedido/novo}"
+	Desabilitar o CRSF (cross-site request forgery) com Spring Security
+	
+============================================================================================
+
