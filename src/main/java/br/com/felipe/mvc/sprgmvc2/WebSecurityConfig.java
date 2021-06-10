@@ -25,16 +25,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
-				.anyRequest().authenticated()
-			.and()
-			.formLogin(form -> form
-	            .loginPage("/login")
-	            .defaultSuccessUrl("/usuario/pedido", true) //faz direcionar para /home direto, antes estava direcionando para /login?logout
-	            .permitAll()
-		    )
-			.logout(logout -> logout.logoutUrl("/logout"))
-			.csrf().disable();//evita o erro 403
+		.authorizeRequests()
+		.antMatchers("/home/**")
+			.permitAll()
+		.anyRequest()
+			.authenticated()
+		.and()
+		.formLogin(form -> form
+            .loginPage("/login")
+            .defaultSuccessUrl("/usuario/pedido", true) //faz direcionar para /home direto, antes estava direcionando para /login?logout
+            .permitAll()
+	    )
+		.logout(logout -> {
+			logout.logoutUrl("/logout")
+				.logoutSuccessUrl("/home");
+		});
 	}
 	
 	@Override
