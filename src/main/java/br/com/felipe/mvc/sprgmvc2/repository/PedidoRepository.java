@@ -2,6 +2,7 @@ package br.com.felipe.mvc.sprgmvc2.repository;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,6 +15,7 @@ import br.com.felipe.mvc.sprgmvc2.model.StatusPedido;
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
+	@Cacheable("pedidos") //habilita para que a consulta seja cacheada
 	List<Pedido> findByStatus(StatusPedido status, Pageable sort);
 
 	@Query("select p from Pedido p join p.user u where u.username = :username")
