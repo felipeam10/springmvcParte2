@@ -46,3 +46,15 @@ Nesta aula, aprendemos a:
 	
 ============================================================================================
 
+Aula 03
+
+Nesta aula, aprendemos como:
+
+	Separar a página pública (sem login) das páginas restritas
+	Redirecionar após logout para a página home
+	Trabalhar com paginação e ordenação, usando as classes Pageable e Sort
+	Usar o cache na aplicação para melhorar o desempenho usando a anotação @Cacheable
+
+============================================================================================
+
+
