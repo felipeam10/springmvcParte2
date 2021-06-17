@@ -57,4 +57,13 @@ Nesta aula, aprendemos como:
 
 ============================================================================================
 
+Aula 04
 
+Nesta aula, aprendemos como:
+
+	Criar um controlador específico para requisições REST
+	Usar o conceito REST para construir uma API devolvendo JSON
+	Usamos a anotação @RestController
+	Vimos que o Spring gera automaticamente o JSON
+	
+============================================================================================
