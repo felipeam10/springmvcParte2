@@ -1,0 +1,69 @@
+<html>
+	<head th:replace="~{base :: head}"></head>
+	<body onload="onLoad()">	
+		<div th:replace="~{base :: logo}"></div>
+
+		<div class="container" id="ofertas">
+			<div th:replace="~{base :: titulo('Faça sua Oferta')}"></div>
+		
+			<div class="card mb-3" v-for="pedido in pedidos">
+				
+				<div class="card-header alert-dark">{{pedido.nomeProduto}}</div>
+			
+				<div class="card-body">
+					<div class="row">
+						<div class="col-12 col-sm-8 mb-3">
+							<div class="row ">
+								<div class="col-md-5">Valor: <input /></div>
+								<div class="col-md-6">Data da entrega: <input /></div>
+							</div>
+							
+							<div>Produto</div> 
+							<div> <a v-bind:href="pedido.urlProduto">{{pedido.nomeProduto}}</a></div>
+							 
+							<div>Descrição</div>
+							<div>
+								<textarea class="form-control" th:text="pedido.descricao">{{pedido.descricao}}</textarea>
+							</div>
+						</div>
+						<div class="col-12 col-sm-4">
+							<div>
+								<img class="img-thumbnail" v-bind:src="pedido.urlImagem"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function onLoad(){
+				var app = new Vue({
+					  el: '#ofertas',
+					  data: {
+					    pedidos: [
+					    	{
+					    		"nomeProduto": "Cadeira Escritório Presidente C/ Ajuste De Altura Dos Braços",
+					    		"valorNegociado": null,
+					    		"dataDaEntrega": null,
+					    		"urlProduto": "https://produto.mercadolivre.com.br/MLB-1842931635-cadeira-escritorio-presidente-c-ajuste-de-altura-dos-braco-_JM",
+					    		"urlImagem": "https://http2.mlstatic.com/D_NQ_NP_617779-MLB45416639457_042021-O.webp",
+					    		"descricao": "Cadeira Escrit�rio Presidente C/ Ajuste De Altura Dos Bra�o",
+					    		"status": "AGUARDANDO"
+					    		},
+					    		{
+					    		"nomeProduto": "Pneu Continental Race King 29x2.2 + Crossking 29x2.3 Tubeles",
+					    		"valorNegociado": null,
+					    		"dataDaEntrega": null,
+					    		"urlProduto": "https://www.mercadolivre.com.br/",
+					    		"urlImagem": "https://http2.mlstatic.com/D_NQ_NP_890168-MLB44627815026_012021-O.webp",
+					    		"descricao": "Pneu Continental Race King 29x2.2 + Crossking 29x2.3 Tubeles",
+					    		"status": "AGUARDANDO"
+					    		}
+					    ]
+					  }
+				});
+			}
+		</script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</body>
+</html> 
