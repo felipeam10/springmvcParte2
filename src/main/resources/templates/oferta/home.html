@@ -23,7 +23,7 @@
 							 
 							<div>Descrição</div>
 							<div>
-								<textarea class="form-control" th:text="pedido.descricao">{{pedido.descricao}}</textarea>
+								<textarea class="form-control">{{pedido.descricao}}</textarea>
 							</div>
 						</div>
 						<div class="col-12 col-sm-4">
@@ -35,35 +35,22 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript">
+		<script>
 			function onLoad(){
 				var app = new Vue({
 					  el: '#ofertas',
 					  data: {
-					    pedidos: [
-					    	{
-					    		"nomeProduto": "Cadeira Escritório Presidente C/ Ajuste De Altura Dos Braços",
-					    		"valorNegociado": null,
-					    		"dataDaEntrega": null,
-					    		"urlProduto": "https://produto.mercadolivre.com.br/MLB-1842931635-cadeira-escritorio-presidente-c-ajuste-de-altura-dos-braco-_JM",
-					    		"urlImagem": "https://http2.mlstatic.com/D_NQ_NP_617779-MLB45416639457_042021-O.webp",
-					    		"descricao": "Cadeira Escrit�rio Presidente C/ Ajuste De Altura Dos Bra�o",
-					    		"status": "AGUARDANDO"
-					    		},
-					    		{
-					    		"nomeProduto": "Pneu Continental Race King 29x2.2 + Crossking 29x2.3 Tubeles",
-					    		"valorNegociado": null,
-					    		"dataDaEntrega": null,
-					    		"urlProduto": "https://www.mercadolivre.com.br/",
-					    		"urlImagem": "https://http2.mlstatic.com/D_NQ_NP_890168-MLB44627815026_012021-O.webp",
-					    		"descricao": "Pneu Continental Race King 29x2.2 + Crossking 29x2.3 Tubeles",
-					    		"status": "AGUARDANDO"
-					    		}
-					    ]
+					    pedidos: []
+					  },
+					  mounted(){
+						  axios
+					      .get('http://localhost:8080/api/pedidos/aguardando')
+					      .then(response => (this.pedidos = response.data))
 					  }
 				});
 			}
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	</body>
 </html> 
