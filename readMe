@@ -77,3 +77,21 @@ Nesta aula, aprendemos a:
 	Vimos como consumir dados e enviar dados do form e JavaScript
 
 ============================================================================================
+
+Aula 06 
+
+Esta aula foi muito dedicada à programação client-side, ou seja, programação com JavaScript, usando as bibliotecas Axiom e Vue.js para simplificar.
+
+	Vimos:
+	
+	Como recuperar valores de um formulário pelo JavaScript
+	Como enviar uma requisição AJAX do tipo POST com Axiom
+	Como fazer um tratamento de erro client-side e apresentar mensagens de erro
+	
+No lado do Spring MVC, vimos a anotação @ResquestBody, para receber o corpo da requisição e mapear os dados para um objeto do nosso domínio.
+
+
+============================================================================================
+
+
+

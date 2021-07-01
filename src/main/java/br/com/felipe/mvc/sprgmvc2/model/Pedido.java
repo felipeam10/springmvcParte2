@@ -34,10 +34,11 @@ public class Pedido {
 	private StatusPedido status;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JsonIgnore
+	@JsonIgnore //nao quero o conteudo do usuario
 	private User user;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pedido", fetch = FetchType.LAZY)
+	@JsonIgnore //nao quero o conteudo da lista de ofertas
 	private List<Oferta> ofertas;
 	
 	public Long getId() {
