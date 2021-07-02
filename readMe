@@ -93,5 +93,30 @@ No lado do Spring MVC, vimos a anotação @ResquestBody, para receber o corpo da
 
 ============================================================================================
 
+Aula 07 
 
+http://localhost:8080/acessos 
 
+vai retornar um json com cada ação do usuário, exemplo:
+[
+	{
+		"path": "/home",
+		"data": [
+			2021,
+			7,
+			2,
+			1,
+			8,
+			54,
+			466000000
+		],
+		"duracao": 0.065
+	},etc 
+	
+Nesta aula, aprendemos:
+
+	Que interceptadores ajudam a centralizar código que é comum para várias classes da mesma camada
+		Centralizando, facilitamos a manutenção desse código
+	Como criar um interceptador, estendendo a classe HandlerInterceptorAdaptor e registrando no InterceptorRegistry
+		A partir dessas classes, devemos sobrescrever os métodos em questão, como preHandle ou afterCompletion
+	Que um interceptador pode parar o fluxo da requisição
